@@ -422,6 +422,7 @@
 				CE3F6E271BD78947000830D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE3F6E281BD78947000830D4 /* Build configuration list for PBXNativeTarget "ContactsListStartTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +431,7 @@
 				CE3F6E2A1BD78947000830D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
