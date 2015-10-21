@@ -17,7 +17,7 @@
 		CE3F6E221BD78947000830D4 /* ContactsListStartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3F6E211BD78947000830D4 /* ContactsListStartTests.m */; };
 		CE60E2911BD7C78000F778EC /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2901BD7C78000F778EC /* Contact.m */; };
 		CE60E2941BD7C79D00F778EC /* Call.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2931BD7C79D00F778EC /* Call.m */; };
-		CE60E2971BD7CCB000F778EC /* createContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2961BD7CCB000F778EC /* createContactViewController.m */; };
+		CE60E2971BD7CCB000F778EC /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2961BD7CCB000F778EC /* CreateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +50,8 @@
 		CE60E2901BD7C78000F778EC /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		CE60E2921BD7C79D00F778EC /* Call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Call.h; sourceTree = "<group>"; };
 		CE60E2931BD7C79D00F778EC /* Call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Call.m; sourceTree = "<group>"; };
-		CE60E2951BD7CCB000F778EC /* createContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createContactViewController.h; sourceTree = "<group>"; };
-		CE60E2961BD7CCB000F778EC /* createContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = createContactViewController.m; sourceTree = "<group>"; };
+		CE60E2951BD7CCB000F778EC /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
+		CE60E2961BD7CCB000F778EC /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,8 @@
 				CE3F6E0C1BD78947000830D4 /* RecentsViewController.h */,
 				CE3F6E0D1BD78947000830D4 /* RecentsViewController.m */,
 				CE3F6E0F1BD78947000830D4 /* Main.storyboard */,
-				CE60E2951BD7CCB000F778EC /* createContactViewController.h */,
-				CE60E2961BD7CCB000F778EC /* createContactViewController.m */,
+				CE60E2951BD7CCB000F778EC /* CreateViewController.h */,
+				CE60E2961BD7CCB000F778EC /* CreateViewController.m */,
 				CE3F6E121BD78947000830D4 /* Images.xcassets */,
 				CE3F6E141BD78947000830D4 /* LaunchScreen.xib */,
 				CE3F6E021BD78947000830D4 /* Supporting Files */,
@@ -244,7 +244,7 @@
 				CE60E2911BD7C78000F778EC /* Contact.m in Sources */,
 				CE60E2941BD7C79D00F778EC /* Call.m in Sources */,
 				CE3F6E0B1BD78947000830D4 /* ContactsViewController.m in Sources */,
-				CE60E2971BD7CCB000F778EC /* createContactViewController.m in Sources */,
+				CE60E2971BD7CCB000F778EC /* CreateViewController.m in Sources */,
 				CE3F6E051BD78947000830D4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

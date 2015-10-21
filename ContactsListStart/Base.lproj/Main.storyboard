@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="1542" y="0.0"/>
         </scene>
-        <!--Create Contact View Controller-->
+        <!--Create View Controller-->
         <scene sceneID="6vu-Gd-YAB">
             <objects>
-                <viewController id="4kV-Aw-FK8" customClass="createContactViewController" sceneMemberID="viewController">
+                <viewController id="4kV-Aw-FK8" customClass="CreateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gbF-9y-Xp1"/>
                         <viewControllerLayoutGuide type="bottom" id="UjJ-dp-vMN"/>

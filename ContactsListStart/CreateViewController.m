@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Harman. All rights reserved.
 //
 
-#import "createContactViewController.h"
+#import "CreateViewController.h"
 #import "ContactsViewController.h"
 
-@interface createContactViewController ()
+@interface CreateViewController ()
 
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation createContactViewController
+@implementation CreateViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
