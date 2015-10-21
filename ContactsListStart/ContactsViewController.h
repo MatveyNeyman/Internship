@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface ContactsViewController : UIViewController
 
+@property (nonatomic) NSMutableArray *contacts;
 
 @end
 

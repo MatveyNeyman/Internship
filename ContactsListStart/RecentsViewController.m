@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Harman. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "RecentsViewController.h"
 
-@interface SecondViewController ()
+@interface RecentsViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation RecentsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
