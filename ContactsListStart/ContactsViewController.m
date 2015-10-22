@@ -9,12 +9,12 @@
 #import "ContactsViewController.h"
 #import "CreateViewController.h"
 #import "Contact.h"
+#import "RecentsViewController.h"
 
-@interface ContactsViewController () <UITableViewDataSource>
+@interface ContactsViewController () //<UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *UITableView;
 @property (nonatomic) NSMutableArray *contacts;
-@property (strong, nonatomic) IBOutlet UIButton *callButton;
 
 @end
 
@@ -72,13 +72,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CreateViewController *crvc = segue.destinationViewController;
+    //RecentsViewController *rcvc = segue.destinationViewController;
     crvc.contacts = self.contacts;
-    //NSLog(@"Prepare for segue in ContactsViewController self.contacts %@", self.contacts);
+    //rcvc.recentContacts = self.contacts;
+    NSLog(@"Prepare for segue in ContactsViewController rcvc.contacts %@", self.contacts);
     //NSLog(@"Prepare for segue in ContactsViewController crvc2.contacts %@", crvc.contacts);
-}
-
-- (IBAction)call:(id)sender {
-        NSLog(@"Call button pressed");
 }
 
 @end

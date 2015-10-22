@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecentsViewController : UIViewController
+@interface RecentsViewController : UITableViewController
+
+@property (nonatomic) NSMutableArray *recentContacts;
 
 @end
 
