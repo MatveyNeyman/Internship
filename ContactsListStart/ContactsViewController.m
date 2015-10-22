@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *UITableView;
 @property (nonatomic) NSMutableArray *contacts;
+@property (strong, nonatomic) IBOutlet UIButton *callButton;
 
 @end
 
@@ -74,6 +75,10 @@
     crvc.contacts = self.contacts;
     //NSLog(@"Prepare for segue in ContactsViewController self.contacts %@", self.contacts);
     //NSLog(@"Prepare for segue in ContactsViewController crvc2.contacts %@", crvc.contacts);
+}
+
+- (IBAction)call:(id)sender {
+        NSLog(@"Call button pressed");
 }
 
 @end
