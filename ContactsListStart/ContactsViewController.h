@@ -7,13 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CreateViewController.h"
 
-@interface ContactsViewController :UITableViewController//UIViewController
-//<CreateViewControllerDelegate>
-//UITableViewController
-
-@property (nonatomic) NSMutableArray *contacts;
+@interface ContactsViewController : UITableViewController
 
 @end
 

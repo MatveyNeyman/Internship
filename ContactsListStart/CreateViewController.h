@@ -10,14 +10,8 @@
 
 @class CreateViewController;
 
-//@protocol CreateViewControllerDelegate <NSObject>
-//- (void)addItemViewController:(CreateViewController *)controller didFinishEnteringItem:(NSString *)item;
-//@end
-
 @interface CreateViewController : UIViewController
 
 @property (nonatomic) NSMutableArray *contacts;
-//@property (nonatomic, weak) id <CreateViewControllerDelegate> delegate;
-
 
 @end

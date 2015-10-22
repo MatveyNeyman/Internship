@@ -8,11 +8,12 @@
 
 #import "ContactsViewController.h"
 #import "CreateViewController.h"
+#import "Contact.h"
 
 @interface ContactsViewController () <UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *UITableView;
-//@property (nonatomic) NSMutableArray *contacts;
+@property (nonatomic) NSMutableArray *contacts;
 
 @end
 
@@ -21,21 +22,30 @@
 - (void)awakeFromNib {
     //NSLog(@"ContactsViewController awakedFromNib");
     self.contacts = [NSMutableArray array];
-    [self.contacts addObject:@"1"];
+    /*
+    NSData *mock;
+    Contact *newContact = [[Contact alloc] initWithFirstName:@"TestFirst"
+                                                    lastName:@"TestLast"
+                                                       phone:@"00000"
+                                                       email:@"abcd@abc.com"
+                                                     address:@"Pacific Ocean"
+                                                       photo:mock];
+    [self.contacts addObject:newContact];
+     */
     //[self.contacts addObject:@"2"];
     //self.contacts = @[@"1", @"2", @"3", @"4"];
-    NSLog(@"awakeFromNib contacts content %@", self.contacts);
+    //NSLog(@"awakeFromNib contacts content %@", self.contacts);
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    //NSLog(@"ContactsViewController viewWillAppear self.contacts %@", self.contacts);
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //NSLog(@"ContactsViewController viewDidLoad");
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"ContactsViewController viewWillAppear self.contacts %@", self.contacts);
-    [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,37 +56,24 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"tableView:numberOfRowsInSection contacts content %@", self.contacts);
+    //NSLog(@"tableView:numberOfRowsInSection contacts content %@", self.contacts);
     return [self.contacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCellId" forIndexPath:indexPath];
-    cell.textLabel.text = self.contacts[indexPath.row];
-    NSLog(@"tableView:cellForRowAtIndexPath contacts content %@", self.contacts);
+    cell.textLabel.text = [self.contacts[indexPath.row] description];
+    //NSLog(@"tableView:cellForRowAtIndexPath contacts content %@", self.contacts);
     return cell;
 }
 
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /*
-    CreateViewController *crvc1 = [[CreateViewController alloc]initWithNibName:@"CreateViewController" bundle:nil];
-    crvc1.delegate = self;
-    [[self navigationController] pushViewController:crvc1 animated:YES];
-    */
-    
-    CreateViewController *crvc2 = segue.destinationViewController;
-    crvc2.contacts = self.contacts;
-    
-    NSLog(@"Prepare for segue in ContactsViewController self.contacts %@", self.contacts);
-    NSLog(@"Prepare for segue in ContactsViewController crvc2.contacts %@", crvc2.contacts);
-    
+    CreateViewController *crvc = segue.destinationViewController;
+    crvc.contacts = self.contacts;
+    //NSLog(@"Prepare for segue in ContactsViewController self.contacts %@", self.contacts);
+    //NSLog(@"Prepare for segue in ContactsViewController crvc2.contacts %@", crvc.contacts);
 }
-/*
-- (void)addItemViewController:(CreateViewController *)controller didFinishEnteringItem:(NSString *)item
-{
-    NSLog(@"This was returned from ViewControllerB %@",item);
-}
-*/
+
 @end

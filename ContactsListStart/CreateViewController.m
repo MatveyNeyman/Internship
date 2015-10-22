@@ -8,10 +8,9 @@
 
 #import "CreateViewController.h"
 #import "ContactsViewController.h"
+#import "Contact.h"
 
 @interface CreateViewController ()
-
-
 
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
@@ -20,10 +19,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *address;
 
 @property (strong, nonatomic) IBOutlet UIButton *createButton;
-
-//@property (nonatomic) NSMutableArray *contacts;
-
-//@property (nonatomic) ContactsViewController *cvc;
 
 @end
 
@@ -40,30 +35,38 @@
 }
 
 - (IBAction)create:(id)sender {
-
-    //NSLog(@"Clicked");
     if (!self.contacts) {
         self.contacts = [NSMutableArray array];
         NSLog(@"Array created in CreateViewController");
     }
-    [self.contacts addObject:self.firstName.text];
-    NSLog(@"CreateContactViewController: contacts content %@", self.contacts);
+
+    if ((self.firstName.text.length == 0) && (self.lastName.text.length == 0)) {
+        //NSLog(@"Please input first or last name");
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
+                                                                       message:@"Input first or last name"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {}];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        return;
+    }
     
-//    NSString *itemToPassBack = @"Pass this value back to ContactsViewController";
-//    [self.delegate addItemViewController:self didFinishEnteringItem:itemToPassBack];
+    NSData *mock;
+    Contact *newContact = [[Contact alloc] initWithFirstName:self.firstName.text
+                                                    lastName:self.lastName.text
+                                                       phone:self.phone.text
+                                                       email:self.phone.text
+                                                     address:self.address.text
+                                                       photo:mock];
+    [self.contacts addObject:newContact];
+    
+    //NSLog(@"CreateContactViewController: contacts content %@", self.contacts);
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
-#pragma mark - Navigation
-/*
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ContactsViewController *covc = segue.destinationViewController;
-    covc.contacts = self.contacts;
-    NSLog(@"Prapare for segue in CreateViewController%@", covc.contacts);
-}
-*/
 @end
 
