@@ -11,6 +11,8 @@
 
 @interface CreateViewController ()
 
+
+
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
 @property (strong, nonatomic) IBOutlet UITextField *phone;
@@ -19,7 +21,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *createButton;
 
-@property (nonatomic) NSMutableArray *contacts;
+//@property (nonatomic) NSMutableArray *contacts;
 
 //@property (nonatomic) ContactsViewController *cvc;
 
@@ -38,25 +40,30 @@
 }
 
 - (IBAction)create:(id)sender {
-    NSLog(@"Clicked");
+
+    //NSLog(@"Clicked");
     if (!self.contacts) {
         self.contacts = [NSMutableArray array];
+        NSLog(@"Array created in CreateViewController");
     }
     [self.contacts addObject:self.firstName.text];
-    NSLog(@"CreateContactViewController says: self contacts content %@", self.contacts);
+    NSLog(@"CreateContactViewController: contacts content %@", self.contacts);
+    
+//    NSString *itemToPassBack = @"Pass this value back to ContactsViewController";
+//    [self.delegate addItemViewController:self didFinishEnteringItem:itemToPassBack];
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-
-
-/*
 #pragma mark - Navigation
-
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ContactsViewController *covc = segue.destinationViewController;
+    covc.contacts = self.contacts;
+    NSLog(@"Prapare for segue in CreateViewController%@", covc.contacts);
 }
 */
-
 @end
+
