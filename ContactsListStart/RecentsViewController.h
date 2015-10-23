@@ -10,7 +10,5 @@
 
 @interface RecentsViewController : UITableViewController
 
-@property (nonatomic) NSMutableArray *recentContacts;
-
 @end
 

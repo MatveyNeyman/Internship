@@ -12,6 +12,7 @@
 @interface RecentsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *UITableView;
+@property (nonatomic) NSMutableArray *recentContacts;
 
 @end
 
