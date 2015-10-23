@@ -29,7 +29,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.recentContacts = [SharedData sharedData].recentCalls;
-    NSLog(@"RecentsViewController viewWillAppear self.contacts %@", self.recentContacts);
+    //NSLog(@"RecentsViewController viewWillAppear self.contacts %@", self.recentContacts);
     [super viewWillAppear:animated];
     //[UINavigationController]
     [self.tableView reloadData];

@@ -15,6 +15,7 @@ static SharedData *sharedData;
 - (instancetype)init {
     self = [super init];
     self.recentCalls = [NSMutableArray array];
+    self.listOfContacts = [NSMutableArray array];
     return self;
 }
 

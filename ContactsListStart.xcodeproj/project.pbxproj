@@ -15,8 +15,9 @@
 		CE3F6E131BD78947000830D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3F6E121BD78947000830D4 /* Images.xcassets */; };
 		CE3F6E161BD78947000830D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3F6E141BD78947000830D4 /* LaunchScreen.xib */; };
 		CE3F6E221BD78947000830D4 /* ContactsListStartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3F6E211BD78947000830D4 /* ContactsListStartTests.m */; };
+		CE46E13C1BDA178000E1D124 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46E13B1BDA178000E1D124 /* CustomCell.m */; };
 		CE60E2911BD7C78000F778EC /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2901BD7C78000F778EC /* Contact.m */; };
-		CE60E2941BD7C79D00F778EC /* Call.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2931BD7C79D00F778EC /* Call.m */; };
+		CE60E2941BD7C79D00F778EC /* CallController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2931BD7C79D00F778EC /* CallController.m */; };
 		CE60E2971BD7CCB000F778EC /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60E2961BD7CCB000F778EC /* CreateViewController.m */; };
 		CECD14F41BD971A40007AB5A /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = CECD14F31BD971A40007AB5A /* SharedData.m */; };
 /* End PBXBuildFile section */
@@ -47,10 +48,12 @@
 		CE3F6E1B1BD78947000830D4 /* ContactsListStartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsListStartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3F6E201BD78947000830D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3F6E211BD78947000830D4 /* ContactsListStartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsListStartTests.m; sourceTree = "<group>"; };
+		CE46E13A1BDA178000E1D124 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		CE46E13B1BDA178000E1D124 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		CE60E28F1BD7C78000F778EC /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		CE60E2901BD7C78000F778EC /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
-		CE60E2921BD7C79D00F778EC /* Call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Call.h; sourceTree = "<group>"; };
-		CE60E2931BD7C79D00F778EC /* Call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Call.m; sourceTree = "<group>"; };
+		CE60E2921BD7C79D00F778EC /* CallController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallController.h; sourceTree = "<group>"; };
+		CE60E2931BD7C79D00F778EC /* CallController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallController.m; sourceTree = "<group>"; };
 		CE60E2951BD7CCB000F778EC /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		CE60E2961BD7CCB000F778EC /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		CECD14F21BD971A40007AB5A /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
@@ -98,12 +101,14 @@
 			children = (
 				CE3F6E061BD78947000830D4 /* AppDelegate.h */,
 				CE3F6E071BD78947000830D4 /* AppDelegate.m */,
-				CE60E2921BD7C79D00F778EC /* Call.h */,
-				CE60E2931BD7C79D00F778EC /* Call.m */,
+				CE60E2921BD7C79D00F778EC /* CallController.h */,
+				CE60E2931BD7C79D00F778EC /* CallController.m */,
 				CE60E28F1BD7C78000F778EC /* Contact.h */,
 				CE60E2901BD7C78000F778EC /* Contact.m */,
 				CE3F6E091BD78947000830D4 /* ContactsViewController.h */,
 				CE3F6E0A1BD78947000830D4 /* ContactsViewController.m */,
+				CE46E13A1BDA178000E1D124 /* CustomCell.h */,
+				CE46E13B1BDA178000E1D124 /* CustomCell.m */,
 				CE60E2951BD7CCB000F778EC /* CreateViewController.h */,
 				CE60E2961BD7CCB000F778EC /* CreateViewController.m */,
 				CE3F6E0C1BD78947000830D4 /* RecentsViewController.h */,
@@ -246,9 +251,10 @@
 			files = (
 				CECD14F41BD971A40007AB5A /* SharedData.m in Sources */,
 				CE3F6E0E1BD78947000830D4 /* RecentsViewController.m in Sources */,
+				CE46E13C1BDA178000E1D124 /* CustomCell.m in Sources */,
 				CE3F6E081BD78947000830D4 /* AppDelegate.m in Sources */,
 				CE60E2911BD7C78000F778EC /* Contact.m in Sources */,
-				CE60E2941BD7C79D00F778EC /* Call.m in Sources */,
+				CE60E2941BD7C79D00F778EC /* CallController.m in Sources */,
 				CE3F6E0B1BD78947000830D4 /* ContactsViewController.m in Sources */,
 				CE60E2971BD7CCB000F778EC /* CreateViewController.m in Sources */,
 				CE3F6E051BD78947000830D4 /* main.m in Sources */,

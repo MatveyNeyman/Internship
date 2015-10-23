@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomCell.h"
 
-@interface Call : UITableViewCell
-
-@property (nonatomic) NSMutableArray *calls;
+@interface CallController : CustomCell
 
 @end

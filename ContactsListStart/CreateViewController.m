@@ -35,16 +35,18 @@
 }
 
 - (IBAction)create:(id)sender {
+
     if (!self.contacts) {
         self.contacts = [NSMutableArray array];
         NSLog(@"Array created in CreateViewController");
     }
 
     if ((self.firstName.text.length == 0) && (self.lastName.text.length == 0)) {
-        //NSLog(@"Please input first or last name");
+        
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
                                                                        message:@"Input first or last name"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction *action) {}];
@@ -63,10 +65,10 @@
                                                        photo:mock];
     [self.contacts addObject:newContact];
     
-    //NSLog(@"CreateContactViewController: contacts content %@", self.contacts);
-    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
 
+    //NSLog(@"CreateContactViewController: contacts content %@", self.contacts);
+        //NSLog(@"Please input first or last name");

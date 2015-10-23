@@ -23,11 +23,8 @@
                             phone:(NSString *)phone
                             email:(NSString *)email
                           address:(NSString *)address
-                            photo:(NSData *)photo;
-{
-    
+                            photo:(NSData *)photo {
     self = [super init];
-    
     if (self) {
         self.firstName = firstName;
         self.lastName = lastName;

@@ -12,5 +12,6 @@
 
 + (SharedData *)sharedData;
 @property (nonatomic) NSMutableArray *recentCalls;
+@property (nonatomic) NSArray *listOfContacts;
 
 @end

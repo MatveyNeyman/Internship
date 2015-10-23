@@ -10,6 +10,8 @@
 #import "CreateViewController.h"
 #import "Contact.h"
 #import "RecentsViewController.h"
+#import "SharedData.h"
+#import "CustomCell.h"
 
 @interface ContactsViewController () //<UITableViewDataSource>
 
@@ -21,26 +23,15 @@
 @implementation ContactsViewController
 
 - (void)awakeFromNib {
-    //NSLog(@"ContactsViewController awakedFromNib");
-    self.contacts = [NSMutableArray array];
-    /*
-    NSData *mock;
-    Contact *newContact = [[Contact alloc] initWithFirstName:@"TestFirst"
-                                                    lastName:@"TestLast"
-                                                       phone:@"00000"
-                                                       email:@"abcd@abc.com"
-                                                     address:@"Pacific Ocean"
-                                                       photo:mock];
-    [self.contacts addObject:newContact];
-     */
-    //[self.contacts addObject:@"2"];
-    //self.contacts = @[@"1", @"2", @"3", @"4"];
-    //NSLog(@"awakeFromNib contacts content %@", self.contacts);
+    //self.contacts = [NSMutableArray array];
+    //Initializing SharedData singleton and array with contacts
+    self.contacts = (NSMutableArray *)[SharedData sharedData].listOfContacts;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     //NSLog(@"ContactsViewController viewWillAppear self.contacts %@", self.contacts);
     [super viewWillAppear:animated];
+    [SharedData sharedData].listOfContacts = self.contacts;
     [self.tableView reloadData];
 }
 
@@ -62,7 +53,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCellId" forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCellId" forIndexPath:indexPath];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCellId" forIndexPath:indexPath];
+    cell.contact = self.contacts[indexPath.row];
     cell.textLabel.text = [self.contacts[indexPath.row] description];
     //NSLog(@"tableView:cellForRowAtIndexPath contacts content %@", self.contacts);
     return cell;
@@ -72,11 +65,27 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CreateViewController *crvc = segue.destinationViewController;
-    //RecentsViewController *rcvc = segue.destinationViewController;
     crvc.contacts = self.contacts;
-    //rcvc.recentContacts = self.contacts;
-    NSLog(@"Prepare for segue in ContactsViewController rcvc.contacts %@", self.contacts);
-    //NSLog(@"Prepare for segue in ContactsViewController crvc2.contacts %@", crvc.contacts);
+    //NSLog(@"Prepare for segue in ContactsViewController rcvc.contacts %@", self.contacts);
 }
 
 @end
+
+    //NSLog(@"ContactsViewController awakedFromNib");
+/*
+ NSData *mock;
+ Contact *newContact = [[Contact alloc] initWithFirstName:@"TestFirst"
+ lastName:@"TestLast"
+ phone:@"00000"
+ email:@"abcd@abc.com"
+ address:@"Pacific Ocean"
+ photo:mock];
+ [self.contacts addObject:newContact];
+ */
+//[self.contacts addObject:@"2"];
+//self.contacts = @[@"1", @"2", @"3", @"4"];
+//NSLog(@"awakeFromNib contacts content %@", self.contacts);
+
+    //RecentsViewController *rcvc = segue.destinationViewController;
+    //rcvc.recentContacts = self.contacts;
+    //NSLog(@"Prepare for segue in ContactsViewController crvc2.contacts %@", crvc.contacts);
