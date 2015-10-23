@@ -18,6 +18,7 @@
 
 @implementation Contact
 
+//Initialization method
 - (instancetype)initWithFirstName:(NSString *)firstName
                          lastName:(NSString *)lastName
                             phone:(NSString *)phone
@@ -36,6 +37,7 @@
     return self;
 }
 
+//Overriding NSObject's description method
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }

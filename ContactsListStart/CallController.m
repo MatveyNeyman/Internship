@@ -19,8 +19,11 @@
 @implementation CallController
 
 - (IBAction)call:(id)sender {
-
+    
+    //Instantiating new call object with the current contact property belongs to CustomCell superclass
     Call *call = [[Call alloc] initWithContact:self.contact];
+    
+    //Adding call to recentCalls array of SharedData singleton
     [[SharedData sharedData].recentCalls addObject:call];
     
     NSLog(@"Recent calls in SharedData %@", [SharedData sharedData].recentCalls);

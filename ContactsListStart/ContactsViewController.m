@@ -23,15 +23,17 @@
 @implementation ContactsViewController
 
 - (void)awakeFromNib {
-    //self.contacts = [NSMutableArray array];
     //Initializing SharedData singleton and array with contacts
     self.contacts = (NSMutableArray *)[SharedData sharedData].listOfContacts;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    //NSLog(@"ContactsViewController viewWillAppear self.contacts %@", self.contacts);
     [super viewWillAppear:animated];
+    
+    //Updating data in SharedData singleton after new contact is created
     [SharedData sharedData].listOfContacts = self.contacts;
+    
+    //Updatind table view sending message to the tableView property of UITableViewController superclass
     [self.tableView reloadData];
 }
 
