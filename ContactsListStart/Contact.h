@@ -11,6 +11,9 @@
 
 @interface Contact : NSObject
 
+@property (strong, nonatomic) NSString *firstName, *lastName, *phone, *email, *address;
+@property (strong, nonatomic) NSData *photo;
+
 - (instancetype)initWithFirstName:(NSString *)firstName
                          lastName:(NSString *)lastName
                             phone:(NSString *)phone

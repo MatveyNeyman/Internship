@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *address;
 
 @property (strong, nonatomic) IBOutlet UIButton *createButton;
+@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -41,18 +42,14 @@
         NSLog(@"Array created in CreateViewController");
     }
 
+    //Checking for empty both name and surname fields and showing an alert message
     if ((self.firstName.text.length == 0) && (self.lastName.text.length == 0)) {
-        
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
-                                                                       message:@"Input first or last name"
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction *action) {}];
-        [alert addAction:defaultAction];
-        [self presentViewController:alert animated:YES completion:nil];
-        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil
+                                                     message:@"Input first or last name"
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [alert show];
         return;
     }
     
@@ -67,6 +64,11 @@
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)cancel:(id)sender {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
 

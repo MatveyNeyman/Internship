@@ -9,12 +9,7 @@
 #import "Contact.h"
 
 @interface Contact ()
-
-@property (strong, nonatomic) NSString *firstName, *lastName, *phone, *email, *address;
-@property (strong, nonatomic) NSData *photo;
-
 @end
-
 
 @implementation Contact
 
