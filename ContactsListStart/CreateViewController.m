@@ -62,11 +62,11 @@
 
     //Checking for empty both name and surname fields and showing an alert message
     if ((self.firstName.text.length == 0) && (self.lastName.text.length == 0)) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil
-                                                     message:@"Input first or last name"
-                                                    delegate:nil
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:nil
+                                                      message:@"Input first or last name"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
         [alert show];
         return;
     }
