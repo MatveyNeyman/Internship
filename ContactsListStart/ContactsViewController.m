@@ -8,15 +8,15 @@
 
 #import "ContactsViewController.h"
 #import "CreateViewController.h"
-#import "Contact.h"
-#import "RecentsViewController.h"
 #import "SharedData.h"
 #import "CustomCell.h"
+#import "ShowItemViewController.h"
 
-@interface ContactsViewController () //<UITableViewDataSource>
+@interface ContactsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *UITableView;
 @property (nonatomic) NSMutableArray *contacts;
+@property (nonatomic) ShowItemViewController *showItemViewController;
 
 @end
 
@@ -50,16 +50,15 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //NSLog(@"tableView:numberOfRowsInSection contacts content %@", self.contacts);
     return [self.contacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCellId" forIndexPath:indexPath];
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCellId" forIndexPath:indexPath];
     cell.contact = self.contacts[indexPath.row];
+    
+    //Showing only first and last name within the cell
     cell.textLabel.text = [self.contacts[indexPath.row] description];
-    //NSLog(@"tableView:cellForRowAtIndexPath contacts content %@", self.contacts);
     return cell;
 }
 
@@ -67,27 +66,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CreateViewController *crvc = segue.destinationViewController;
+    
+    //Passing current array to the CreateViewController where a new object will be added
     crvc.contacts = self.contacts;
-    //NSLog(@"Prepare for segue in ContactsViewController rcvc.contacts %@", self.contacts);
+    self.showItemViewController = segue.destinationViewController;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //Passing selected contact to the Recents view
+    self.showItemViewController.contact = [self.contacts objectAtIndex:indexPath.row];
 }
 
 @end
-
-    //NSLog(@"ContactsViewController awakedFromNib");
-/*
- NSData *mock;
- Contact *newContact = [[Contact alloc] initWithFirstName:@"TestFirst"
- lastName:@"TestLast"
- phone:@"00000"
- email:@"abcd@abc.com"
- address:@"Pacific Ocean"
- photo:mock];
- [self.contacts addObject:newContact];
- */
-//[self.contacts addObject:@"2"];
-//self.contacts = @[@"1", @"2", @"3", @"4"];
-//NSLog(@"awakeFromNib contacts content %@", self.contacts);
-
-    //RecentsViewController *rcvc = segue.destinationViewController;
-    //rcvc.recentContacts = self.contacts;
-    //NSLog(@"Prepare for segue in ContactsViewController crvc2.contacts %@", crvc.contacts);

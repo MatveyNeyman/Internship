@@ -8,11 +8,14 @@
 
 #import "RecentsViewController.h"
 #import "SharedData.h"
+#import "ShowItemViewController.h"
+#import "Call.h"
 
 @interface RecentsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *UITableView;
 @property (nonatomic) NSMutableArray *recentContacts;
+@property (nonatomic) ShowItemViewController *showItemViewController;
 
 @end
 
@@ -29,25 +32,34 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    //SharedData object provides passing the contact to the Recents tab
     self.recentContacts = [SharedData sharedData].recentCalls;
-    //NSLog(@"RecentsViewController viewWillAppear self.contacts %@", self.recentContacts);
     [super viewWillAppear:animated];
-    //[UINavigationController]
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //NSLog(@"tableView:numberOfRowsInSection contacts content %@", self.recentContacts);
     return [self.recentContacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecentCellId" forIndexPath:indexPath];
     cell.textLabel.text = [self.recentContacts[indexPath.row] description];
-    //NSLog(@"tableView:cellForRowAtIndexPath contacts content %@", self.recentContacts);
     return cell;
+}
+
+//This method is called before decided which contact object to show
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.showItemViewController = segue.destinationViewController;
+}
+
+//This method is called after prepareForSegue:sender for passing choosed contact
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Call *selectedCall = [self.recentContacts objectAtIndex:indexPath.row];
+    self.showItemViewController.contact = selectedCall.contact;
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE392A7A1BE112F100FAD2F4 /* ShowItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE392A791BE112F100FAD2F4 /* ShowItemViewController.m */; };
 		CE3F6E051BD78947000830D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3F6E041BD78947000830D4 /* main.m */; };
 		CE3F6E081BD78947000830D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3F6E071BD78947000830D4 /* AppDelegate.m */; };
 		CE3F6E0B1BD78947000830D4 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3F6E0A1BD78947000830D4 /* ContactsViewController.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE392A781BE112F100FAD2F4 /* ShowItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowItemViewController.h; sourceTree = "<group>"; };
+		CE392A791BE112F100FAD2F4 /* ShowItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowItemViewController.m; sourceTree = "<group>"; };
 		CE3F6DFF1BD78946000830D4 /* ContactsListStart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsListStart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3F6E031BD78947000830D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3F6E041BD78947000830D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				CE46E13B1BDA178000E1D124 /* CustomCell.m */,
 				CE60E2951BD7CCB000F778EC /* CreateViewController.h */,
 				CE60E2961BD7CCB000F778EC /* CreateViewController.m */,
+				CE392A781BE112F100FAD2F4 /* ShowItemViewController.h */,
+				CE392A791BE112F100FAD2F4 /* ShowItemViewController.m */,
 				CE3F6E0C1BD78947000830D4 /* RecentsViewController.h */,
 				CE3F6E0D1BD78947000830D4 /* RecentsViewController.m */,
 				CECD14F21BD971A40007AB5A /* SharedData.h */,
@@ -257,6 +262,7 @@
 				CECD14F41BD971A40007AB5A /* SharedData.m in Sources */,
 				CE3F6E0E1BD78947000830D4 /* RecentsViewController.m in Sources */,
 				CE46E13C1BDA178000E1D124 /* CustomCell.m in Sources */,
+				CE392A7A1BE112F100FAD2F4 /* ShowItemViewController.m in Sources */,
 				CE3F6E081BD78947000830D4 /* AppDelegate.m in Sources */,
 				CE60E2911BD7C78000F778EC /* Contact.m in Sources */,
 				CE46E13F1BDA22FE00E1D124 /* Call.m in Sources */,

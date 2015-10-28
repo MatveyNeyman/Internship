@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class CreateViewController;
-
 @interface CreateViewController : UIViewController
 
 @property (nonatomic) NSMutableArray *contacts;

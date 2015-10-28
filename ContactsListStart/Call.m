@@ -11,7 +11,6 @@
 @interface Call ()
 
 @property (nonatomic) NSString *stringTime;
-@property (nonatomic) Contact *contact;
 
 @end
 
@@ -19,6 +18,11 @@ static NSDateFormatter *dateFormatter = nil;
 
 @implementation Call
 
+- (instancetype)init {
+    return [self initWithContact:nil];
+}
+
+//Designated initializer
 - (instancetype)initWithContact:(Contact *)contact {
     self = [super init];
     if (self) {
@@ -34,7 +38,6 @@ static NSDateFormatter *dateFormatter = nil;
         
         //Initializing the time of call stringTime property
         self.stringTime = [dateFormatter stringFromDate:time];
-        
     }
     return self;
 }

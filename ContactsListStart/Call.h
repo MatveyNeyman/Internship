@@ -11,6 +11,8 @@
 
 @interface Call : NSObject
 
+@property (nonatomic) Contact *contact;
+
 - (instancetype)initWithContact:(Contact *)contact;
 
 @end

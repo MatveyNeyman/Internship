@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Harman. All rights reserved.
 //
 
+//Singleton object for data passing
+
 #import <Foundation/Foundation.h>
 
 @interface SharedData : NSObject

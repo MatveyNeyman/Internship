@@ -37,6 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Opening photo gallery to pick the image up
 - (IBAction)addPhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -44,6 +45,7 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+//Setting choosen picture for contact's photo and dismissing the button
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *choosedImage = info[UIImagePickerControllerOriginalImage];
     self.photo.image = choosedImage;
@@ -52,10 +54,10 @@
 }
 
 - (IBAction)create:(id)sender {
-
+    
+    //Safety check
     if (!self.contacts) {
         self.contacts = [NSMutableArray array];
-        NSLog(@"Array created in CreateViewController");
     }
 
     //Checking for empty both name and surname fields and showing an alert message
@@ -69,6 +71,7 @@
         return;
     }
     
+    //Creating new contact object initialized by the text fields and adding it to the array
     Contact *newContact = [[Contact alloc] initWithFirstName:self.firstName.text
                                                     lastName:self.lastName.text
                                                        phone:self.phone.text
@@ -84,8 +87,4 @@
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 @end
-
-    //NSLog(@"CreateContactViewController: contacts content %@", self.contacts);
-        //NSLog(@"Please input first or last name");

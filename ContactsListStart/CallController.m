@@ -26,13 +26,12 @@
     //Adding call to recentCalls array of SharedData singleton
     [[SharedData sharedData].recentCalls addObject:call];
     
-    //NSLog(@"Recent calls in SharedData %@", [SharedData sharedData].recentCalls);
-    
+    //Extracting phone number and preparing a call
     NSString* phoneNumber = self.contact.phone;
     NSString *number = [NSString stringWithFormat:@"%@",phoneNumber];
     NSURL* callUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", number]];
     
-    //Checking Call Function availability and show 'Simulating call...' message
+    //Checking Call Function availability and making a call or showing 'Simulating call...' message
     if([[UIApplication sharedApplication] canOpenURL:callUrl]) {
         [[UIApplication sharedApplication] openURL:callUrl];
     } else {
