@@ -10,16 +10,18 @@
 #import "ContactsViewController.h"
 #import "Contact.h"
 
-@interface CreateViewController ()
+@interface CreateViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
 @property (strong, nonatomic) IBOutlet UITextField *phone;
 @property (strong, nonatomic) IBOutlet UITextField *email;
 @property (strong, nonatomic) IBOutlet UITextField *address;
+@property (strong, nonatomic) IBOutlet UIImageView *photo;
 
 @property (strong, nonatomic) IBOutlet UIButton *createButton;
 @property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+@property (strong, nonatomic) IBOutlet UIButton *addPhotoButton;
 
 @end
 
@@ -33,6 +35,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addPhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *choosedImage = info[UIImagePickerControllerOriginalImage];
+    self.photo.image = choosedImage;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    self.addPhotoButton.hidden = YES;
 }
 
 - (IBAction)create:(id)sender {
@@ -53,13 +69,12 @@
         return;
     }
     
-    NSData *mock;
     Contact *newContact = [[Contact alloc] initWithFirstName:self.firstName.text
                                                     lastName:self.lastName.text
                                                        phone:self.phone.text
                                                        email:self.phone.text
                                                      address:self.address.text
-                                                       photo:mock];
+                                                       photo:self.photo.image];
     [self.contacts addObject:newContact];
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];

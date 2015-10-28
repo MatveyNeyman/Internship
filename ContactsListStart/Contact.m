@@ -13,13 +13,22 @@
 
 @implementation Contact
 
-//Initialization method
+- (instancetype)init {
+    return [self initWithFirstName:(NSString *)@""
+                          lastName:(NSString *)@""
+                             phone:(NSString *)@""
+                             email:(NSString *)@""
+                           address:(NSString *)@""
+                             photo:(UIImage *)nil];
+}
+
+//Designated initializer
 - (instancetype)initWithFirstName:(NSString *)firstName
                          lastName:(NSString *)lastName
                             phone:(NSString *)phone
                             email:(NSString *)email
                           address:(NSString *)address
-                            photo:(NSData *)photo {
+                            photo:(UIImage *)photo {
     self = [super init];
     if (self) {
         self.firstName = firstName;

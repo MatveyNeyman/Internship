@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <UIKit/UIKit.h>
+#import <UIKit/UIKit.h>
 
 @interface Contact : NSObject
 
 @property (strong, nonatomic) NSString *firstName, *lastName, *phone, *email, *address;
-@property (strong, nonatomic) NSData *photo;
+@property (strong, nonatomic) UIImage *photo;
 
 - (instancetype)initWithFirstName:(NSString *)firstName
                          lastName:(NSString *)lastName
                             phone:(NSString *)phone
                             email:(NSString *)email
                           address:(NSString *)address
-                            photo:(NSData *)photo;
+                            photo:(UIImage *)photo;
 
 @end
