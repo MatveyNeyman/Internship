@@ -10,7 +10,7 @@
 #import "ContactsViewController.h"
 #import "Contact.h"
 
-@interface CreateViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface CreateViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
@@ -85,6 +85,13 @@
 
 - (IBAction)cancel:(id)sender {
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
