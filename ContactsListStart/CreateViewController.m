@@ -75,7 +75,7 @@
     Contact *newContact = [[Contact alloc] initWithFirstName:self.firstName.text
                                                     lastName:self.lastName.text
                                                        phone:self.phone.text
-                                                       email:self.phone.text
+                                                       email:self.email.text
                                                      address:self.address.text
                                                        photo:self.photo.image];
     [self.contacts addObject:newContact];

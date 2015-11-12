@@ -173,16 +173,6 @@
                                     <outlet property="delegate" destination="4kV-Aw-FK8" id="dcU-y7-djv"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxJ-Jy-zrc">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancel:" destination="4kV-Aw-FK8" eventType="touchUpInside" id="sXK-7g-Hp9"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWi-of-pMx">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -207,6 +197,16 @@
                                 </state>
                                 <connections>
                                     <action selector="create:" destination="4kV-Aw-FK8" eventType="touchUpInside" id="Kkr-TO-akh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxJ-Jy-zrc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="4kV-Aw-FK8" eventType="touchUpInside" id="sXK-7g-Hp9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -277,10 +277,10 @@
                                 <include reference="YPA-hP-fWZ"/>
                                 <include reference="9mb-OJ-XvA"/>
                                 <include reference="Co8-rN-l9D"/>
-                                <include reference="GxJ-Jy-zrc"/>
                                 <include reference="qWi-of-pMx"/>
                                 <include reference="xmb-Ra-qeP"/>
                                 <include reference="LQE-nM-D3D"/>
+                                <include reference="GxJ-Jy-zrc"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="SUO-oI-9Ft"/>

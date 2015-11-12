@@ -65,16 +65,20 @@
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //This object is responsible for adding new Contacts to the contacts array
     CreateViewController *crvc = segue.destinationViewController;
     
     //Passing current array to the CreateViewController where a new object will be added
     crvc.contacts = self.contacts;
+    
+    //Essential segue for passing contacts array. For this purpose is used NSArray *contacts public property of showItemViewController
     self.showItemViewController = segue.destinationViewController;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //Passing selected contact to the Recents view
+    //Passing selected contact to the ShowItem view
     self.showItemViewController.contact = [self.contacts objectAtIndex:indexPath.row];
 }
 
