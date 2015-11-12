@@ -46,12 +46,11 @@
     
     if (![phoneNumber  isEqual: @""]) {
         //Instantiating new call object with the current contact property belongs to CustomCell superclass
-        Call *call = [[Call alloc] initWithContact:self.contact];
+        Call *newCall = [[Call alloc] initWithContact:self.contact];
         
-        //Adding call to recentCalls array of SharedData singleton
-        [[SharedData sharedData].recentCalls addObject:call];
+        //Adding call to the storage
+        [[SharedData sharedData] addCall:newCall];
     }
-    
 }
 
 @end

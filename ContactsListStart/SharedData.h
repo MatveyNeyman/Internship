@@ -9,11 +9,19 @@
 //Singleton object for data passing
 
 #import <Foundation/Foundation.h>
+@class Contact;
+@class Call;
 
 @interface SharedData : NSObject
 
-+ (SharedData *)sharedData;
-@property (nonatomic) NSMutableArray *recentCalls;
-@property (nonatomic) NSArray *listOfContacts;
+@property (nonatomic, readonly) NSArray *recentCalls;
+@property (nonatomic, readonly) NSArray *listOfContacts;
+
++ (instancetype)sharedData;
+
+- (void)addContact:(Contact *)contact;
+- (void)addCall:(Call *)call;
+- (BOOL)saveContacts;
+- (BOOL)saveCalls;
 
 @end

@@ -11,7 +11,6 @@
 
 @interface ShowItemViewController : UIViewController
 
-@property (nonatomic) NSArray *contacts;
 @property (nonatomic) Contact *contact;
 
 @end

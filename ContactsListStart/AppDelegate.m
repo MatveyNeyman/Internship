@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SharedData.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +28,9 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    [[SharedData sharedData] saveContacts];
+    [[SharedData sharedData] saveCalls];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

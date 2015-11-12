@@ -8,7 +8,7 @@
 
 #import "Call.h"
 
-@interface Call ()
+@interface Call () <NSCoding>
 
 @property (nonatomic) NSString *stringTime;
 
@@ -45,6 +45,20 @@ static NSDateFormatter *dateFormatter = nil;
 //Overriding NSObject's description method
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@ %@", self.contact, self.stringTime];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.contact forKey:@"contact"];
+    [aCoder encodeObject:self.stringTime forKey:@"time"];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        _contact = [aDecoder decodeObjectForKey:@"contact"];
+        _stringTime = [aDecoder decodeObjectForKey:@"time"];
+    }
+    return self;
 }
 
 @end

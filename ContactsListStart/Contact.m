@@ -8,7 +8,8 @@
 
 #import "Contact.h"
 
-@interface Contact ()
+@interface Contact () <NSCoding>
+
 @end
 
 @implementation Contact
@@ -44,6 +45,28 @@
 //Overriding NSObject's description method
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.firstName forKey:@"firstName"];
+    [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    [aCoder encodeObject:self.phone forKey:@"phone"];
+    [aCoder encodeObject:self.email forKey:@"email"];
+    [aCoder encodeObject:self.address forKey:@"address"];
+    [aCoder encodeObject:self.photo forKey:@"photo"];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        _firstName = [aDecoder decodeObjectForKey:@"firstName"];
+        _lastName = [aDecoder decodeObjectForKey:@"lastName"];
+        _phone = [aDecoder decodeObjectForKey:@"phone"];
+        _email = [aDecoder decodeObjectForKey:@"email"];
+        _address = [aDecoder decodeObjectForKey:@"address"];
+        _photo = [aDecoder decodeObjectForKey:@"photo"];
+    }
+    return self;
 }
 
 @end

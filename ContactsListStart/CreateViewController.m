@@ -9,8 +9,9 @@
 #import "CreateViewController.h"
 #import "ContactsViewController.h"
 #import "Contact.h"
+#import "SharedData.h"
 
-@interface CreateViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface CreateViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
@@ -54,12 +55,6 @@
 }
 
 - (IBAction)create:(id)sender {
-    
-    //Safety check
-    if (!self.contacts) {
-        self.contacts = [NSMutableArray array];
-    }
-
     //Checking for empty both name and surname fields and showing an alert message
     if ((self.firstName.text.length == 0) && (self.lastName.text.length == 0)) {
         UIAlertView *alert=[[UIAlertView alloc] initWithTitle:nil
@@ -78,13 +73,15 @@
                                                        email:self.email.text
                                                      address:self.address.text
                                                        photo:self.photo.image];
-    [self.contacts addObject:newContact];
+    //Adding created object to the storage
+    [[SharedData sharedData] addContact:newContact];
     
+    //Closing the view
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancel:(id)sender {
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITextFieldDelegate

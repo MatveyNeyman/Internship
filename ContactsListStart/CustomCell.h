@@ -9,7 +9,8 @@
 //We need this class to provide contact property to the UITableViewCell class. There also might be some code for cell's design.
 
 #import <UIKit/UIKit.h>
-#import "Contact.h"
+
+@class Contact;
 
 @interface CustomCell : UITableViewCell
 

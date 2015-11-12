@@ -15,7 +15,7 @@
 @interface ContactsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *UITableView;
-@property (nonatomic) NSMutableArray *contacts;
+@property (nonatomic) NSArray *contacts;
 @property (nonatomic) ShowItemViewController *showItemViewController;
 
 @end
@@ -24,15 +24,12 @@
 
 - (void)awakeFromNib {
     //Initializing SharedData singleton and array with contacts
-    self.contacts = (NSMutableArray *)[SharedData sharedData].listOfContacts;
+    self.contacts = [SharedData sharedData].listOfContacts;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    //Updating data in SharedData singleton after new contact is created
-    [SharedData sharedData].listOfContacts = self.contacts;
-    
+
     //Updatind table view sending message to the tableView property of UITableViewController superclass
     [self.tableView reloadData];
 }
@@ -65,13 +62,7 @@
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    //This object is responsible for adding new Contacts to the contacts array
-    CreateViewController *crvc = segue.destinationViewController;
-    
-    //Passing current array to the CreateViewController where a new object will be added
-    crvc.contacts = self.contacts;
-    
+
     //Essential segue for passing contacts array. For this purpose is used NSArray *contacts public property of showItemViewController
     self.showItemViewController = segue.destinationViewController;
 }

@@ -10,6 +10,4 @@
 
 @interface CreateViewController : UIViewController
 
-@property (nonatomic) NSMutableArray *contacts;
-
 @end
